@@ -28,4 +28,5 @@ Bit_Solver runs on Python 3.5+ and uses the following dependencies:
 </ul>
 
 # Instructions
-Run in terminal using `python bruteforcer.py`
+WINDOWS: Run in cmd or bash using `python bruteforcer.py` <br>
+OSX: Run in terminal using `python3 bruteforcer.py`
