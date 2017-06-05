@@ -22,7 +22,7 @@ Bit_Solver currently handles the following logical operations:
 </ul>
 
 # Dependencies
-Bit_Solver runs on Python 3.5+ and uses the following dependencies:
+Bit_Solver runs on Python 3.5+ and uses the following modules:
 <ul>
 <li> time
 <li> inspect
