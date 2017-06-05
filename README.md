@@ -13,10 +13,10 @@ One possible solution would be `~ index 0 ^ ~ index 1 | ~ index 2 | ~ index 3`
 # Operations
 Bit_Solver currently handles the following logical operations:
 <ul>
-<li>XOR `^`
-<li>OR `|` 
-<li>AND `&`
-<li>NOT `~`
+<li>XOR ^
+<li>OR | 
+<li>AND &
+<li>NOT ~
 <li>NOT USED
 <li>NO CHANGE
 </ul>
