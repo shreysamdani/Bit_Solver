@@ -34,9 +34,20 @@ def findPerms(nibble):
     return result
 
 # evaluates the expression given
-def evaluate(expression):  # expression is an alternating list of tuples and functions:
-    # [(sign, (bit, index), function, .....)]
+def evaluate(expression, parens = False):  # expression is an alternating list of tuples and functions:
+    # [(sign, (bit, index)), function, .....]
     result = expression[0][0](expression[0][1][0])
+    if isinstance(expression[-1], bool):
+        expression = expression[:-1]
+    if parens:
+        l1 = result
+        op1 = expression[1]
+        l2 = expression[2][0](expression[2][1][0])
+        op2 = expression[3]
+        r1 = expression[4][0](expression[4][1][0])
+        op3 = expression[5]
+        r2 = expression[6][0](expression[6][1][0])
+        return op2(op1(l1,l2),op3(r1,r2))
     index = 1
     while index < len(expression):
         sign = expression[index + 1][0]
@@ -53,6 +64,8 @@ def findOps(perm, answer):
         if len(perm) == 1:
             if evaluate(curr + [perm[0]]) == answer:
                 sols.append(curr + [perm[0]])
+            if evaluate(curr + perm, True) == answer:
+                sols.append(curr + perm + [True])
             return
         for op in OPS:
             helper(perm[1:], answer, curr + [perm[0], op])
@@ -141,4 +154,4 @@ def solver(nibbles, keys):
     except IndexError:
         print("----------------------------------------------")
 
-# solver(["1011", "1010", "1001", "1111"],[1, 1, 0, 1])
+solver(["1011", "1010", "1001", "1111"],[1, 1, 0, 1])
